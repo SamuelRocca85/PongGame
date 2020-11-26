@@ -1,0 +1,4 @@
+#1 Crear lista enlazadas que contenga todos los caracteres de los palos
+
+#2 Arreglo para dibujar el mapa, el cuadrado del area de juego
+

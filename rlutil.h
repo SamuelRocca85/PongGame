@@ -149,22 +149,22 @@ namespace rlutil {
 /**
  * Enums: Color codes
  *
- * BLACK - Black
- * BLUE - Blue
- * GREEN - Green
- * CYAN - Cyan
- * RED - Red
- * MAGENTA - Magenta / purple
- * BROWN - Brown / dark yellow
- * GREY - Grey / dark white
- * DARKGREY - Dark grey / light black
- * LIGHTBLUE - Light blue
- * LIGHTGREEN - Light green
- * LIGHTCYAN - Light cyan
- * LIGHTRED - Light red
- * LIGHTMAGENTA - Light magenta / light purple
- * YELLOW - Yellow (bright)
- * WHITE - White (bright)
+ * BLACK - Black -------------------------------0
+ * BLUE - Blue    ------------------------------1
+ * GREEN - Green -------------------------------2 
+ * CYAN - Cyan  --------------------------------3
+ * RED - Red     -------------------------------4
+ * MAGENTA - Magenta / purple ------------------5
+ * BROWN - Brown / dark yellow -----------------6
+ * GREY - Grey / dark white --------------------7
+ * DARKGREY - Dark grey / light black ----------8
+ * LIGHTBLUE - Light blue ----------------------9
+ * LIGHTGREEN - Light green --------------------10
+ * LIGHTCYAN - Light cyan ----------------------11
+ * LIGHTRED - Light red ------------------------12
+ * LIGHTMAGENTA - Light magenta / light purple -13
+ * YELLOW - Yellow (bright) --------------------14
+ * WHITE - White (bright) ----------------------15
  */
 enum {
 	BLACK,
