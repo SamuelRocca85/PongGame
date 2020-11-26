@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/rocca_s/PongGame/test.cpp
+rlutil.h
+/home/rocca_s/PongGame/rlutil.h
+algorithm
+-
+cstdlib
+-
+cstdio
+-
+ctime
+-
+
