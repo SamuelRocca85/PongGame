@@ -1,3 +1,0 @@
-/home/rocca_s/PongGame/build/CMakeFiles/rebuild_cache.dir
-/home/rocca_s/PongGame/build/CMakeFiles/edit_cache.dir
-/home/rocca_s/PongGame/build/CMakeFiles/pong.dir
