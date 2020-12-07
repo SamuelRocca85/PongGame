@@ -10,9 +10,9 @@ using namespace std;
 
 struct object
 {
-    unsigned x;
-    unsigned y;
-    char obj;
+    int x;
+    int y;
+    char val;
 };
 
 
