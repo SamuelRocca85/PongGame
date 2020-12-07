@@ -159,7 +159,7 @@ namespace rlutil {
  * GREY - Grey / dark white --------------------7
  * DARKGREY - Dark grey / light black ----------8
  * LIGHTBLUE - Light blue ----------------------9
- * LIGHTGREEN - Light green --------------------10
+ * LIGHTGREEN - Light green --------------------10 //default
  * LIGHTCYAN - Light cyan ----------------------11
  * LIGHTRED - Light red ------------------------12
  * LIGHTMAGENTA - Light magenta / light purple -13
