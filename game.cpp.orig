@@ -8,6 +8,17 @@ using namespace std;
 #define mapC 28
 #define mapF 10
 
+<<<<<<< HEAD
+struct object
+{
+    unsigned x;
+    unsigned y;
+    char obj;
+};
+
+
+||||||| 04d2d31
+=======
 struct object
 {
     int x;
@@ -15,7 +26,7 @@ struct object
     char val;
 };
 
-
+>>>>>>> refs/remotes/origin/main
 void showMap(int m[mapF][mapC]);
 
 int main()
@@ -59,19 +70,33 @@ int main()
     }while(option != 2);
     
     
+<<<<<<< HEAD
     
     rlutil::cls();
+||||||| 04d2d31
+    startkey;
+
+=======
+    startkey;
+
+    rlutil::cls();
+>>>>>>> refs/remotes/origin/main
     rlutil::showcursor();
 
 }
 
 void showMap(int m[mapF][mapC])
 {
-    object ball; ball.val = 'o';
+<<<<<<< HEAD
+    object ball; ball.obj = 'o';
     rlutil::hidecursor();
     rlutil::cls();
     rlutil::locate(8,0); cout << "J1";
     rlutil::locate(20,0); cout << "J2";
+||||||| 04d2d31
+=======
+    object ball; 
+>>>>>>> refs/remotes/origin/main
     int x = 0, y = 2;
     for(int i = 0; i < mapF;i++,y++)
     {
@@ -89,11 +114,18 @@ void showMap(int m[mapF][mapC])
                     rlutil::setColor(10);
                     break;
                 case 4:
+<<<<<<< HEAD
                     ball.x = x; ball.y = y; rlutil::locate(ball.x+ 1 , ball.y);
-                    cout << ball.val;
+                    cout << ball.obj;
                     rlutil::setColor(9); 
-                    ball.val = 'o';
+                    ball.obj = 'o';
                     rlutil::setColor(10); 
+||||||| 04d2d31
+                    cout << "o";
+=======
+                    ball.x = x; ball.y = y; ball.val = 'o';
+                    cout << "o";
+>>>>>>> refs/remotes/origin/main
                     break;
             }
         }
@@ -106,7 +138,7 @@ void showMap(int m[mapF][mapC])
         gotoxy(ball.x,ball.y); std::cout << " ";
         ball.x--;
         gotoxy(ball.x , ball.y);
-        cout << ball.val;
+        cout << ball.obj;
     }
 
     rlutil::locate(0,14);
