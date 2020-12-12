@@ -18,7 +18,7 @@ void Player::move(int dir)
 {
     clean();
     if (dir)
-        y--;
+        y -= 2;
     else
-        y++;
+        y += 2;
 }

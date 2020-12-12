@@ -1,10 +1,11 @@
 #include "rlutil.h"
-#include <iostream>
-#include <stdlib.h>
 #include "Player.h"
+#include "Ball.h"
 #include <string>
 using namespace std;
+
 #define startkey rlutil::anykey("Pulse cualquier tecla para comenzar...\n\n")
+
 void game();
 void menu();
 void drawMap();
@@ -47,7 +48,7 @@ void menu()
         else
             gotoxy(1,5);
         
-        rlutil::setColor(9); cout << "->";
+        rlutil::setColor(9); cout << "=>";
 
         if(kbhit())
         {
@@ -74,9 +75,7 @@ void menu()
                 }
             }
 
-            set[0] = 10;
-            set[1] = 10;
-            set[2] = 10;
+            set[0] = 10; set[1] = 10; set[2] = 10;
 
             if(counter == 1)
                 set[0] = 12;
@@ -124,15 +123,19 @@ void drawMap()
 
 void game()
 {
+    rlutil::setColor(10);
     drawMap();
-    gotoxy(15,3);
-    startkey;
-    gotoxy(15,3); cout << "   Consigue 7 puntos para ganar!         ";
     Player j1(5,12); j1.draw();
     Player j2(55,12);j2.draw();
-
+    Ball ball(30,12,1,1); ball.draw();
+    gotoxy(62,3);
+    startkey;
+    gotoxy(62,3); cout << "   Consigue 7 puntos para ganar!         ";
+    
+    int cont = 0;
     while(true)
     {
+        drawMap();
         if(kbhit())
         {
             rlutil::cls();
@@ -154,6 +157,9 @@ void game()
 
             j1.draw(); j2.draw();
         }
+        if (!cont++) ball.move();
+        if(cont > 5) cont = 0;
+        rlutil::msleep(10);
         cout.flush();
     }
 }

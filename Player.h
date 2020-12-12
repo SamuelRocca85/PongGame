@@ -1,31 +1,20 @@
 #ifndef PLAYER_
 #define PLAYER_
-#include "iostream"
-#include "rlutil.h"
+#include "Graphic.h"
+
 
 using namespace std;
 
-class Player 
+class Player : public  Graphic
 {
 public:
     Player(int x,int y) 
-     : x(x), y(y) 
+     : Graphic(x,y) 
      {}
 
     void draw();
     void clean();
     void move(int dir);
-    
-    int getX()
-    {return x;}
-
-    int getY()
-    {return y;}
-
-
-private:
-    int x;
-    int y;
 };
 
 
