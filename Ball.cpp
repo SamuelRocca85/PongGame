@@ -17,7 +17,7 @@ void Ball::move()
     y += dy;
     draw();
 
-    if(x + dx == 3 || x + dx == 60)
+    if(x + dx == 1 || x + dx == 60)
     {   
         clean();
         dx = -dx;

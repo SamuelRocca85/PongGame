@@ -22,3 +22,8 @@ void Player::move(int dir)
     else
         y += 2;
 }
+
+void Player::anotar()
+{
+    puntos++;
+}

@@ -6,6 +6,9 @@ using namespace std;
 
 #define startkey rlutil::anykey("Pulse cualquier tecla para comenzar...\n\n")
 
+Player j1(5,12);
+Player j2(56,12);
+
 void game();
 void menu();
 void drawMap();
@@ -19,7 +22,7 @@ int main()
 
 void menu()
 {
-    int set[3] = {12,10,10};
+    int set[3] = {12,10,10}; //Lista de colores para colorear de rojo la opcion seleccionada
     int counter = 1;
     char key;
 
@@ -41,7 +44,7 @@ void menu()
         rlutil::setColor(set[2]);
         gotoxy(3,5); cout << "Salir";  
 
-        if(counter == 1)
+        if (counter == 1)
             gotoxy(1,3);
         else if (counter == 2)
             gotoxy(1,4);
@@ -50,19 +53,19 @@ void menu()
         
         rlutil::setColor(9); cout << "=>";
 
-        if(kbhit())
+        if (kbhit())
         {
             rlutil::cls();
             key = getch();
-            if(key == 'w' && (counter >= 2 && counter <= 3))
+            if (key == 'w' && (counter >= 2 && counter <= 3))
                 counter--;
-            if(key == 's' && (counter >= 1 && counter <= 2))
+            if (key == 's' && (counter >= 1 && counter <= 2))
                 counter++;
 
-            if(key == '\r')
+            if (key == '\r')
             {
                 //rlutil::cls();
-                if(counter == 1)
+                if (counter == 1)
                 {
                     game();
                 }else if (counter == 2)
@@ -77,7 +80,7 @@ void menu()
 
             set[0] = 10; set[1] = 10; set[2] = 10;
 
-            if(counter == 1)
+            if (counter == 1)
                 set[0] = 12;
             else if (counter == 2)
                 set[1] = 12;
@@ -86,14 +89,11 @@ void menu()
             
         }
     }
-
-    
-
 }
 
 void drawMap()
 {
-    for(int i = 2; i < 60; i++)
+    for (int i = 2; i < 60; i++)
     {
         gotoxy(i, 1);
         cout << "#";
@@ -116,8 +116,8 @@ void drawMap()
         gotoxy(30,i); cout << "|";
     }
 
-    gotoxy(25,5); cout << "0";
-    gotoxy(35,5); cout << "0";
+    gotoxy(25,5); cout << j1.getPuntos();
+    gotoxy(35,5); cout << j2.getPuntos();
     
 }
 
@@ -125,9 +125,8 @@ void game()
 {
     rlutil::setColor(10);
     drawMap();
-    Player j1(5,12); j1.draw();
-    Player j2(55,12);j2.draw();
     Ball ball(30,12,1,1); ball.draw();
+    j1.draw(); j2.draw();
     gotoxy(62,3);
     startkey;
     gotoxy(62,3); cout << "   Consigue 7 puntos para ganar!         ";
