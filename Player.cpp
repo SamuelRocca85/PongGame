@@ -26,4 +26,5 @@ void Player::move(int dir)
 void Player::reset()
 {
     puntos = 0;
+    nickname = "";
 }

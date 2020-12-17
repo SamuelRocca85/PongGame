@@ -1,7 +1,7 @@
 #ifndef PLAYER_
 #define PLAYER_
 #include "Graphic.h"
-
+#include <string>
 using namespace std;
 
 class Player : public  Graphic
@@ -19,8 +19,13 @@ public:
     {puntos++;}
     int getPuntos() const 
     { return puntos; }
+    string getNick()
+    { return nickname; }
+    void setNick(string nick)
+    { nickname = nick;}
 private:
     int puntos;
+    string nickname;
 };
 
 
