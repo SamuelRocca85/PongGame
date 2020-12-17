@@ -2,7 +2,9 @@
 #include "Player.h"
 #include "Ball.h"
 #include "GameRecord.h"
-#include <string>
+
+#include <locale>
+
 using namespace std;
 
 #define startkey rlutil::anykey("Pulse cualquier tecla para comenzar...\n\n")
@@ -17,22 +19,11 @@ void drawMap();
 void historial();
 void setName(Player *p, int n);
 
-struct delimiter : std::ctype<char> {
-  delimiter() : std::ctype<char>(get_table()) {}
-  static mask const* get_table()
-  {
-    static mask rc[table_size];
-    rc['\n'] = std::ctype_base::space;
-    rc['\n'] = std::ctype_base::space;
-    return &rc[0];
-  }
-};
 
 int main()
 {
     rlutil::cls();
     rlutil::hidecursor();
-    cin.imbue(locale(cin.getloc(), new delimiter));
     menu();
 }
 
@@ -60,13 +51,10 @@ void menu()
         rlutil::setColor(set[2]);
         gotoxy(3,5); cout << "Salir";  
 
-        if (counter == 1)
-            gotoxy(1,3);
-        else if (counter == 2)
-            gotoxy(1,4);
-        else
-            gotoxy(1,5);
-        
+        if (counter == 1) gotoxy(1,3);
+        else if (counter == 2) gotoxy(1,4);
+        else gotoxy(1,5);
+               
         rlutil::setColor(9); cout << "=>";
 
         if (kbhit())
@@ -98,12 +86,9 @@ void menu()
 
             set[0] = 10; set[1] = 10; set[2] = 10;
 
-            if (counter == 1)
-                set[0] = 12;
-            else if (counter == 2)
-                set[1] = 12;
-            else
-                set[2] = 12;
+            if (counter == 1) set[0] = 12;
+            else if (counter == 2) set[1] = 12;
+            else set[2] = 12;
             
         }
     }

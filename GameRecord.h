@@ -19,6 +19,8 @@ class GameRecord
 public:
     GameRecord()
     { first = nullptr;}
+    ~GameRecord()
+    {delete first;}
     bool isEmpty()
     {return first == nullptr;}
     void addGame(string p1, string p2, int s1, int s2);
