@@ -23,7 +23,7 @@ void Player::move(int dir)
         y += 2;
 }
 
-void Player::anotar()
+void Player::reset()
 {
-    puntos++;
+    puntos = 0;
 }

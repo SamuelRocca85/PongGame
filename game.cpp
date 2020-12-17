@@ -1,17 +1,20 @@
 #include "rlutil.h"
 #include "Player.h"
 #include "Ball.h"
+#include "GameRecord.h"
 #include <string>
 using namespace std;
 
 #define startkey rlutil::anykey("Pulse cualquier tecla para comenzar...\n\n")
+#define waitkey rlutil::anykey("Pulse cualquier tecla para continuar...\n\n")
 
 Player j1(5,12);
 Player j2(56,12);
-
+GameRecord record;
 void game();
 void menu();
 void drawMap();
+void historial();
 
 int main()
 {
@@ -70,7 +73,7 @@ void menu()
                     game();
                 }else if (counter == 2)
                 {
-                    //TODO historial aqui
+                    historial();
                 }else if (counter == 3)
                 {
                     rlutil::showcursor();
@@ -95,14 +98,14 @@ void drawMap()
 {
     for (int i = 2; i < 60; i++)
     {
-        gotoxy(i, 1);
+        gotoxy(i, 2);
         cout << "#";
 
         gotoxy(i, 24);
         cout << "#";
     }
 
-    for (int i =2; i < 24; i++)
+    for (int i =3; i < 24; i++)
     {
         gotoxy(1,i);
         cout << "#";
@@ -111,7 +114,7 @@ void drawMap()
         cout << "#";
     }
 
-    for (int i = 2; i < 24;i++)
+    for (int i = 3; i < 24;i++)
     {
         gotoxy(30,i); cout << "|";
     }
@@ -127,9 +130,9 @@ void game()
     drawMap();
     Ball ball(30,12,1,1); ball.draw();
     j1.draw(); j2.draw();
-    gotoxy(62,3);
+    gotoxy(14,1);
     startkey;
-    gotoxy(62,3); cout << "   Consigue 7 puntos para ganar!         ";
+    gotoxy(14,1); cout << "   Consigue 7 puntos para ganar!         ";
     
     int cont = 0;
     while(true)
@@ -140,25 +143,62 @@ void game()
             rlutil::cls();
             drawMap();
             char tecla = getch();
-            if(tecla == 'q')
-            {
-                rlutil::cls();
-                break;
-            }
-            if(tecla == 'w' && j1.getY() > 3)
+            if(tecla == 'w' && j1.getY() >  4)
                 j1.move(1);
             else if(tecla == 's' && j1.getY() < 22)
                 j1.move(0);
-            else if (tecla == 'i' && j2.getY() > 3)
+            else if (tecla == 'i' && j2.getY() > 4)
                 j2.move(1);
             else if (tecla == 'k' && j2.getY() < 22)
                 j2.move(0);
 
             j1.draw(); j2.draw();
         }
-        if (!cont++) ball.move();
+        int punto;
+        if (!cont++) punto = ball.move(&j1, &j2);
         if(cont > 5) cont = 0;
+
+        if (j1.getPuntos() == 7 || j2.getPuntos() == 7)
+        {
+            rlutil::cls();
+            record.addGame("Hola", "Adios", j1.getPuntos(), j2.getPuntos());
+            j1.setCoordinates(5,12); 
+            j2.setCoordinates(56,12); 
+            ball.reset();
+            gotoxy(2,2); cout << "score: Player 1: " << j1.getPuntos() << " - Player 2: " << j2.getPuntos();
+            gotoxy(2,4); waitkey;
+            rlutil::cls();
+            j1.reset(); j2.reset();
+            break;
+        }
+
+        if(punto)
+        {
+            drawMap();
+            ball.clean(); j1.clean(); j2.clean();
+            ball.setCoordinates(30,12); ball.draw();
+            j1.setCoordinates(5,12); j1.draw(); 
+            j2.setCoordinates(56,12); j2.draw();
+            gotoxy(14,1);
+            waitkey;
+            gotoxy(14,1); cout << "   Consigue 7 puntos para ganar!         ";
+
+            punto = !punto;
+        }
+
         rlutil::msleep(10);
         cout.flush();
     }
+}
+
+void historial()
+{
+    gotoxy(38,1); cout << "Pulsa \"q\" en cualquier momento para regresar al menu";
+    char key = 'a';
+    while(key != 'q')
+    {
+        record.print();
+        key = getch();
+    }
+    rlutil::cls();
 }

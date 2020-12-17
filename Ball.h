@@ -1,7 +1,7 @@
 #ifndef BALL_
 #define BALL_
 #include "Graphic.h"
-
+#include "Player.h"
 
 class Ball : public Graphic
 {
@@ -12,7 +12,8 @@ public:
 
     void draw();
     void clean();
-    void move();
+    void reset();
+    int move(Player *p1, Player *p2);
 
 private:
     int dx;

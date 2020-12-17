@@ -14,12 +14,15 @@ protected:
 
     virtual void draw() = 0;
     virtual void clean() = 0;
-    //virtual void move() = 0;
-
+    virtual void reset() = 0;
+    
     int x;
     int y;
     
 public:
+    void setCoordinates(int _x, int _y)
+    { x = _x; y = _y;}
+
     int getX()
     {return x;}
 

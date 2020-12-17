@@ -13,8 +13,10 @@ public:
 
     void draw();
     void clean();
+    void reset();
     void move(int dir);
-    void anotar();
+    void anotar()
+    {puntos++;}
     int getPuntos() const 
     { return puntos; }
 private:
