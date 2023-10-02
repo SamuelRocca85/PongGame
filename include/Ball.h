@@ -7,8 +7,9 @@ class Ball : public Graphic
 {
 public:
     Ball(int x, int y, int dx, int dy)
-     : Graphic(x,y), dx(dx), dy(dy)
-    {}
+        : Graphic(x, y), dx(dx), dy(dy)
+    {
+    }
 
     void draw();
     void clean();
@@ -20,5 +21,4 @@ private:
     int dy;
 };
 
-
-#endif //BALL_
+#endif // BALL_

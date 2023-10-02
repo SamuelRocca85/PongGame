@@ -11,23 +11,29 @@ struct node
     string player_2;
     int score_1;
     int score_2;
-    node* next;
+    node *next;
 };
 
 class GameRecord
 {
 public:
     GameRecord()
-    { first = nullptr;}
+    {
+        first = nullptr;
+    }
     ~GameRecord()
-    {delete first;}
+    {
+        delete first;
+    }
     bool isEmpty()
-    {return first == nullptr;}
+    {
+        return first == nullptr;
+    }
     void addGame(string p1, string p2, int s1, int s2);
     void print();
+
 private:
     node *first;
-
 };
 
-#endif //GameRecord_
+#endif // GameRecord_
