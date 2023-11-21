@@ -6,10 +6,17 @@ Una versión del clasico Pong creada con c++ y la libreria [rlutil](https://gith
 
 - Cmake
 - Make
-- Un compilador como g++ u otro de tu elección
+- Un compilador como g++ u otro
 
-## Compilar 
-Para compilar el proyecto puedes seguir estos comandos
+## Clonar el repositorio
+
+```bash
+git clone https://github.com/SamuelRocca85/PongGame
+cd PongGame
+```
+
+## Compilar el juego
+Para compilar el juego puedes seguir estos comandos
 
 ```bash
 mkdir ./build
